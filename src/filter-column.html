@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<div class="container" ng-controller="candidateCtrl">
+<h2>Bootstrap inline Radio Buttons</h2>
+<div class="row"> 
+<div class="col-lg-4">
+  <p>Angular JS Filter by Radio Button</p>
+  <form>
+    <label class="radio-inline">
+      <input type="radio" name="optradio" ng-model="searchText.role" value="Engineer">Engineer
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio" ng-model="searchText.role" value="Doctor">Doctor
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio" ng-model="searchText.role" value="Teacher">Teacher
+    </label>
+  </form>
+
+</div>
+</div>
+
+<div class="row"> 
+<div class="col-lg-4">
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Profession</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="candidate in candidates | filter:searchText:strict">
+        <td>{{candidate.name}}</td>
+        <td>{{candidate.role}}</td>
+        <td>{{candidate.country}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+</div>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('candidateCtrl', function($scope) {
+    $scope.candidates = [
+        {name:'Goutam',role:'Engineer',country:'India'},
+        {name:'Carl',role:'Engineer',country:'Sweden'},
+        {name:'Margareth',role:'Doctor',country:'England'},
+        {name:'Hege',role:'Engineer',country:'Norway'},
+        {name:'Joe',role:'Engineer',country:'Denmark'},
+        {name:'Rathin',role:'Doctor',country:'India'},
+        {name:'Birgit',role:'Teacher',country:'Denmark'},
+        {name:'Mary',role:'Engineer',country:'England'},
+        {name:'Kai',role:'Teacher',country:'Norway'}
+        ];
+
+});
+  //$scope.searchText="";
+
+</script>
+
+</body>
+</html>
