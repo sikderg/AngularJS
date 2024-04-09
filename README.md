@@ -15,7 +15,7 @@ To run this application locally, follow these steps:
 2. Navigate into the project directory:
 
    ```bash
-   cd angularjs-basic-application
+   cd AngularJS
    ```
 
 3. Open the `index.html` file in your preferred web browser.
